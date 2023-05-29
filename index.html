@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raffle Page</title>
+</head>
+<body>
+    <h1>Welcome to the Raffle!</h1>
+    <p>Entry Fee: 1 ETH</p>
+    
+    <!-- Form for entering the raffle -->
+    <form action="/enter" method="post">
+        <input type="submit" value="Enter Raffle">
+    </form>
+    
+    <!-- List of participants -->
+    <h2>Participants:</h2>
+    <ul>
+        {{#each participants}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    
+    <!-- Button for drawing the winner -->
+    <form action="/draw" method="post">
+        <input type="submit" value="Draw Winner">
+    </form>
+    
+    <!-- Display the winner (if there is one) -->
+    {{#if winner}}
+    <h2>The winner is:</h2>
+    <p>{{winner}}</p>
+    {{else}}
+    <p>No winner has been drawn yet.</p>
+    {{/if}}
+</body>
+</html>
